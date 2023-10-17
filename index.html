@@ -33,8 +33,8 @@
       if (arr.length < 2) {
         return "No swap performed"
       }
-      const [firstElement] = arr
-      const [lastElement] = arr.at(arr.length - 1)
+      let [firstElement] = arr
+      let lastElement = arr.at(-1)
 
       arr[0] = lastElement
       arr[arr.length - 1] = firstElement
@@ -124,11 +124,14 @@
     // 🧠 We suggest using a for loop. Research how to loop backwards over an array, starting at the last element.
     // 🧠 Use a ternary in the return statement.
     const reverseString = (str) => {
-      let revString = ''
-      for (let i = str.length - 1; i >= 0; i--) {
-        revString += str[i]
+      const splitStr = str.split('')
+      let revString = []
+      for (let i = splitStr.length - 1; i >= 0; i--) {
+        let char = splitStr[i]
+        revString.push(char)
       }
-      return revString === str ? "It's a palindrome!" : revString
+      const reJoined = revString.join('')
+      return reJoined === str ? "It's a palindrome!" : reJoined
 
     }
 
@@ -145,7 +148,7 @@
     // 🧠 Even though object properties have no particular order, to avoid confusing
     // the test runner, please set in each object first name, then age, and finally jsLover.
     const zip = (names, years, jsLovers) => {
-      result = []
+      let result = []
       for(let i = 0; i < names.length; i++) {
 
         const info = {
